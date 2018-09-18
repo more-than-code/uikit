@@ -1,4 +1,4 @@
-import { UIView, UIViewEelement } from "../View/UIView";
+import { UIView, UIViewEelement } from "../view/UIView";
 import './UIPopup.scss';
 import template from './UIPopup.pug';
 

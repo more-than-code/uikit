@@ -1,4 +1,4 @@
-import {UIView} from '../View/UIView';
+import {UIView} from '../view/UIView';
 
 export class UIViewController {
     constructor() {

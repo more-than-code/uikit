@@ -1,6 +1,6 @@
 import {
     UIWindow
-} from "../View/UIWindow";
+} from "../view/UIWindow";
 
 let shareApplication = null;
 
