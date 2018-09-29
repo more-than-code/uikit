@@ -2,14 +2,26 @@
   "name": "uikit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/uikit.cjs.js",
+  "module": "dist/uikit.esm.js",
+  "browser": "dist/uikit.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "ssh://git@192.168.1.4/srv/git/UIKit"
   },
   "author": "Joe",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.66.2",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-pug": "^1.0.0",
+    "rollup-plugin-scss": "^0.4.0"
+  }
 }
