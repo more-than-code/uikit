@@ -1,7 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import pkg from './package.json';
-import scss from 'rollup-plugin-scss';
+import postcss from 'rollup-plugin-postcss';
 import pug from 'rollup-plugin-pug';
 
 export default [
@@ -14,7 +14,7 @@ export default [
 			format: 'umd'
 		},
 		plugins: [
-			scss(),
+			postcss(),
 			pug(),
 			resolve(), // so Rollup can find `ms`
 			commonjs() // so Rollup can convert `ms` to an ES module
@@ -35,7 +35,7 @@ export default [
 			{ file: pkg.module, format: 'es' }
 		],
 		plugins: [
-			scss(),
+			postcss(),
 			pug()
 		]
 	}
