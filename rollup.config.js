@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import pkg from './package.json';
 import postcss from 'rollup-plugin-postcss';
 import pug from 'rollup-plugin-pug';
+import babel from 'rollup-plugin-babel';
 
 export default [
 	// browser-friendly UMD build
@@ -17,6 +18,11 @@ export default [
 			postcss(),
 			pug(),
 			resolve(), // so Rollup can find `ms`
+			// babel({
+			// 	plugins: ['external-helpers'],
+      		// 	externalHelpers: true,
+			// 	exclude: 'node_modules/**' // only transpile our source code
+			// }),
 			commonjs() // so Rollup can convert `ms` to an ES module
 		]
 	},
@@ -30,13 +36,23 @@ export default [
 	// `file` and `format` for each target)
 	{
 		input: 'src/index.js',
-		output: [
-			{ file: pkg.main, format: 'cjs' },
-			{ file: pkg.module, format: 'es' }
+		output: [{
+				file: pkg.main,
+				format: 'cjs'
+			},
+			{
+				file: pkg.module,
+				format: 'es'
+			}
 		],
 		plugins: [
 			postcss(),
-			pug()
+			pug(),
+			// babel({
+			// 	plugins: ['external-helpers'],
+      		// 	externalHelpers: true,
+			// 	exclude: 'node_modules/**' // only transpile our source code
+			// })
 		]
 	}
 ];
