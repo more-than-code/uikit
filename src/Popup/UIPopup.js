@@ -1,6 +1,6 @@
 import { UIView, UIViewEelement } from "../view/UIView";
 import './UIPopup.scss';
-// import template from './UIPopup.pug';
+import template from './UIPopup.pug';
 
 class UIPopupEelement extends UIViewEelement {
 
@@ -12,8 +12,7 @@ export class UIPopup extends UIView {
     constructor() {
         super();
         this.elName = alteredName;
-        this.template = `div(class='modal-dimiss') &#x2715;
-        div(class='modal-content-wrapper')`;
+        this.template = template();
         this.image = null;
     }
 
